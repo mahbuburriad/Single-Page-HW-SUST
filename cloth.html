@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Online Cloth Store</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Inconsolata|Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Montserrat" rel="stylesheet">
+
+    <style>
+        .head-color {
+            color: #FF6666;
+            float: left;
+            font-family: 'Satisfy', cursive;
+        }
+
+        .navigation-bar {
+            float: right;
+
+        }
+
+        .navigation-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navigation-bar li {
+            float: left;
+        }
+
+        .navigation-bar li a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.6875rem;
+            font-weight: normal;
+            color: #000;
+            padding: 35px 15px;
+            text-transform: uppercase;
+
+        }
+
+        .navigation-bar li a:hover {
+            color: #FF6666;
+        }
+
+        .banner {
+            clear: both;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            box-shadow: 1px 1px 1px 1px #888888;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            color: #FF6666;
+        }
+
+        p {
+            font-family: "Arimo", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .column img{
+            height: 300px;
+            width: 400px;
+        }
+        
+        
+        .column2 img{
+            height: 300px;
+            width: 75%;
+        }
+        
+        .readmore{
+            background-color: #FF6666;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+        }
+        .readmore:hover{
+            background-color: white;
+            color: #FF6666;
+            padding: 15px;
+            border-radius: 20px;
+            transition: .9s linear;
+        }
+        
+        .product{
+            
+       
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            display: inline-grid;
+            margin-left: 30px;
+            margin-top: 15px;
+            border-radius: 40px;
+        }
+        
+        .product img{
+            width: 100%;
+            height: 200px;
+            
+        }
+      
+        .product .price{
+       
+            color: #FF6666;
+        }
+        
+        .cart{
+            width: 100%;
+            clear: both;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #FF6666;
+            color: white;
+            
+        }
+        
+        .cart:hover{
+            background-color: white;
+            color: #FF6666;
+            transition: .6s linear;
+        }
+        
+          .section-color{
+            background: #E9EAEC;
+        }
+        
+        .shop{
+            margin-top: 60px;
+            
+        }
+        
+        .desc{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .text{
+            margin-bottom: 10px;
+            width: 1100px;
+            height: 50px;
+
+            
+        }
+        input, textarea{
+            text-align: center;
+        }
+        
+        .textarea{
+            border-radius: 30px;
+        }
+        
+        .submitbutton{
+            background-color: #FF6666;
+            padding: 20px;
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            color: white;
+
+            cursor:pointer;
+            margin-bottom: 10px;
+        }
+        
+        #contact{
+            width: 100%;
+        }
+        
+        .footer-distributed{
+	background-color: #FF6666;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+
+
+	padding: 45px 50px;
+	margin-top: 80px;
+}
+
+.footer-distributed .footer-left p{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+}
+
+
+.footer-distributed p.footer-links{
+	font-size:18px;
+	font-weight: bold;
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-right{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #FF6666;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-left: 3px;
+}
+
+
+@media (max-width: 600px) {
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		text-align: center;
+	}
+
+	.footer-distributed .footer-right{
+		float: none;
+		margin: 0 auto 20px;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+	}
+}
+        
+        .picture{
+            background-image: url("https://images.pexels.com/photos/50987/money-card-business-credit-card-50987.jpeg?dl&fit=crop&crop=entropy&w=1920&h=1280");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+        }
+        
+        .texta{
+            text-align: right
+        }
+        
+        .column p, span{
+            color: white;
+        }
+
+        
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="home">
+        <div>
+            <h2 class="head-color">OCS</h2>
+        </div>
+        <div class="navigation-bar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#allinfo">About Us</a></li>
+                <li><a href="#product">Our Product</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="banner">
+        <img src="https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?dl&fit=crop&crop=entropy&w=1280&h=853" alt="banner photo">
+    </div>
+
+    <div id="allinfo" class="allinfo">
+        <div class="row">
+            <div class="column">
+                <div class="row">
+                    <div class="column">
+                    <img src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?dl&fit=crop&crop=entropy&w=640&h=426" alt="">
+                    </div>
+                    <div class="column">
+                        <h2>| About US</h2>
+                        <p>1st time in Bangladesh we are introducing "Online fruit Shop" .Its an online fruit house for you and your dear ones. Buy for your friends, family , near dear and closest people. We ensure that we will provide fresh fruit all over the country.</p>
+                        <button class="readmore">Read More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="row">
+                    <div class="column">
+                        <img src="https://images.pexels.com/photos/1210484/pexels-photo-1210484.jpeg?dl&fit=crop&crop=entropy&w=640&h=426" alt="">
+                    </div>
+                    <div class="column">
+                        <h2>| Ordering System</h2>
+                        <p>1st time in Bangladesh we are introducing "Online fruit Shop" .Its an online fruit house for you and your dear ones. Buy for your friends, family , near dear and closest people. We ensure that we will provide fresh fruit all over the country.</p>
+                        <button class="readmore">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 60px;" class="row picture">
+                  
+                
+                      <div class="column"></div>
+              
+                   <div class="column">
+                        <h2>| Payment System</h2>
+                        <p>You can pay through Dutch Bangla Bank or Bkash whichever way you prefer</p>
+                        <h4>
+                            Dutch Bangla Bank
+                        </h4>
+                        <span>A/C # 11xxxxxxx</span>
+                        <h4>Bkash</h4>
+                        <span>019xxxxxxx (personal)</span>
+                        
+                    </div>
+                    
+                    
+                </div>
+
+    </div>
+    
+    <div id="product" class="shop section-color">
+    <center>
+       <div class="desc">
+       <h2>Our Products</h2>
+    <p>we take full responsibility of our product to make sure you get the right and good product</p>
+        
+    </div>
+        
+    </center>
+    
+    
+    
+    
+    <div class="product">
+           <img src="https://cdn.shopify.com/s/files/1/1755/5355/products/mock-10-3418-62463b-nh-ns-21323607619650491581496948828_1800x.png?v=1539204084" alt="">
+           <center>
+                <div class="details">
+              <h4>Tshirt</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://i.frg.im/vhaQTC5/433028399135-0_600.jpg?v=1518577883.423" alt="">
+           <center>
+                <div class="details">
+              <h4>Shirt</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://oldnavy.gap.com/webcontent/0011/715/861/cn11715861.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Jeans</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+          <img src="https://simages.tbdress.com/Upload/Image/2018/212/510-680/e7349c70-523c-4de8-b705-ec94d22640aa.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://cdn.shopclues.com/images/thumbnails/5101/320/320/KhakhiBeige14020581841444490151.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://images-na.ssl-images-amazon.com/images/I/61GB%2BaD%2BEBL._SX342_.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://rukminim1.flixcart.com/image/612/612/sari/g/h/v/1-1-blbluvel-5220-g-stuff-fashion-free-original-imaepjxabwkujx46.jpeg?q=70" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://ae01.alicdn.com/kf/HTB1W625KpXXXXcDXFXXq6xXFXXX9/Special-offer-2014-men-s-business-casual-shirts-man-Business-attire-mens-dress-shirt-M-4XL.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://www.dhresource.com/albu_310952716_00-1.0x0/mens-dress-new-arrival-hot-british-fashion.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://i.pinimg.com/736x/84/74/a8/8474a8e4e94ea124f5354ad3e8eaedb8--navy-blue-dress-shirt-mens-dress-shirts.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://image.dhgate.com/albu_300731512_00/1.0x0.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+        
+         <div class="product">
+           <img src="https://guides.overstock.com/wp-content/uploads/2017/05/big-2.jpg" alt="">
+           <center>
+                <div class="details">
+              <h4>Product</h4>
+              <p>Product</p>
+           </div>
+           <div class="price">$55.55</div>
+           <button class="cart">Add to Cart</button>
+           </center>
+          
+
+    </div>
+
+        
+        
+    </div>
+    
+    
+        <div id="contact" style="margin-top: 40px;">
+        <center>
+            <h2 style="margin-top: 20px;">Contact Us</h2>
+            <p>if any types of inquirey please contact with us</p>
+
+            <form action="">
+                <input class="text" type="text" placeholder="Enter Your Name"><br>
+                <input class="text" type="email" placeholder="Enter Your Email"><br>
+                <input class="text" type="text" placeholder="Enter Subject"><br>
+                <textarea class="textarea" name="" id="" placeholder="Enter Your Message" cols="155" rows="20"></textarea><br>
+
+                <button class="submitbutton">Send Message</button>
+
+            </form>
+
+        </center>
+    </div>
+    
+    <footer class="footer-distributed">
+
+			<div class="footer-right">
+
+				<a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a href="#home">Home</a>
+					·
+					<a href="#allinfo">About Us</a>
+					·
+					<a href="#product">Product</a>
+					·
+					<a href="#contact">Contact Us</a>
+				</p>
+
+				<p>Online Cloth Shop &reg; 2018</p>
+			</div>
+
+		</footer>
+    
+    
+
+
+
+
+
+
+
+</body>
+
+</html>
