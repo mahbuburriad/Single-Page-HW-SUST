@@ -1,29 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Online Cloth Shop</title>
+    <title>Online Fruit Shop</title>
     <link href="https://fonts.googleapis.com/css?family=Arimo|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
-        .head-color{
+
+
+
+        .section-color{
+            background: #E9EAEC;
+        }
+       
+
+        .head-color {
+            color: #002E5B;
+            float: left;
+            font-family: 'Arimo', sans-serif;
+        }
+
+        .navigation-bar {
+            float: right;
+        }
+
+        .navigation-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navigation-bar li {
+            float: left;
+        }
+
+        .navigation-bar li a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.6875rem;
+            font-weight: normal;
+            color: #000;
+            padding: 35px 15px;
+            text-transform: uppercase;
+
+        }
+
+        .navigation-bar li a:hover {
+            color: #bf4066;
+        }
+        i{
+            color:   #bf4066;      }
+        
+        .banner{
+            clear: both;
+        }
+    
+        
+        .banner img{
+        width: 100%;
+        height: auto;
+             box-shadow: 1px 1px 1px 1px #888888;
+        }
+        
+        h2, h3, h4, h5, h6{
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            color:   #bf4066; 
+        }
+        p{
+            font-family: "Arimo", sans-serif;
+        }
+        
+        .aboutus{
+            width: 100%;
+        }
+        
+
+
+        .card{
+            cursor: pointer;
+            background: white;
+            height: 300px;
+            width: 300px;
+            border-radius: round;
+            padding: 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .aboutussection, .payment, .order{
+            display: inline-grid;
+            margin-right: 20px;
+            
+            
+        }
+        
+        #contact{
+            padding: 1px;
+        }
+
+        .product, .product-img {
+          width:260px;
+          height:260px;
+          position:relative;
+          transition:.7s;
+          -webkit-transition:.7s;
+          z-index:2;
+        }
+
+        .product-actions {
+          width:260px;
+          height:260px;
+          position:relative;
+          overflow: hidden;
+          margin-top:-263px;
+          transition:.7s;
+          -webkit-transition:.7s;
+          z-index:2;
+        }
+
+        .product {
+            display: inline-grid;
+            margin-left: 80px;
+
+          -webkit-box-shadow: -2px 3px 2px rgba(0,0,0,0.5);
+                  box-shadow: -2px 3px 2px rgba(0,0,0,0.5);
+          background:#000;
+        }
+
+        .sale, .info-block, .product-title, .product-description, .product-sale, .product-prize, .button-buy, .play, .more, .nav, .add {
+          position:absolute;
+          z-index:3;
+        }
+
+        .sale-tile {
+          width: 50px;
+          height: 100px;
+          background: #e74c3c;
+          position: absolute;
+          top: -45px;
+          right: -10px;
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+          z-index:2;
+        }
+
+        .sale {
+          font-size:11px;
+          color:#fff;
+          -webkit-transform:rotate(45deg);
+          top:52px;
+          left:2px;
+        }
+
+        .info-block {
+          height:130px;
+          width:260px;
+          background:rgba(255,255,255,.85);
+          bottom:0px;
+          margin-bottom:-70px;
+          transition:.7s;
+        }
+
+        .product-title {
+          color:#222;
+          font-size:1em:
+          font-weight:400;
+          top:12px;
+          left:15px;
+        }
+
+        .product-description {
+          width:228px;
+          top:32px;
+          left:16px;
+          font-family: 'helvetica neue';
+          font-size: 0.8em;
+          font-weight: 400;
+          color: #7d7d7d;
+          border-bottom:1px solid #dadada;
+          padding-bottom:15px;
+        }
+
+        .product-sale {
+          color: #e74c3c;
+          font-size: 1em;
+          font-weight: 700;
+          font-family: 'helvetica neue';
+          right:15px;
+          top:12px;
+        }
+
+        .product-prize {
+          color:#7d7d7d;
+          font-size:0.8em;
+          font-weight:400;
+          font-family:'helvetica neue';
+          right:17px;
+          top:32px;
+        }
+
+        .button-buy {
+          background: #e74c3c;
+          text-align: center;
+          line-height: 46px;
+          font-weight: 700;
+          color: #fff;
+          border: 0px solid #c0392b;
+          border-bottom-width: 2px;
+          width:170px;
+          height:44px;
+          bottom:15px;
+          left:15px;
+          cursor:pointer;
+          transition:.4s;
+        }
+
+        .button-buy:hover {
+          background:#c0392b;
+        }
+
+        .add {
+          background: #2ecc71;
+          text-align: center;
+          line-height: 46px;
+          font-weight: 700;
+          color: #fff;
+          border: 0px solid #27ae60;
+          border-bottom-width: 2px;
+          width:50px;
+          height:44px;
+          bottom:15px;
+          right:15px;
+          cursor:pointer;
+          transition:.4s;
+        }
+
+        .add:hover {
+          background:#27ae60;
+        }
+
+        .product:hover .info-block {
+          margin-bottom:0;
+        }
+
+        .product:hover input[name="play"] + label span {
+          opacity:1;
+        }
+
+        .product:hover .more {
+          opacity:1;
+        }
+
+        .more {
+          background-color: #4f4f4f;
+          top: 50px;
+          left: 15px;
+          background-image: url(https://blog.addthiscdn.com/wp-content/uploads/2015/11/share.png);
+          width: 30px;
+          height: 30px;
+          cursor:pointer;
+          opacity:0;
+          transition:.7s;
+          z-index:2;
+        }
+
+        .more:hover {
+          background-color: #3f3f3f;
+          background-image: url(https://blog.addthiscdn.com/wp-content/uploads/2015/11/share.png);
+        }
+
+
+        .nav {
+          background: #4f4f4f;
+          height:250px;
+          margin-left:0;
+          top:5px;
+          width:250px;
+          z-index:-4;
+          font-weight:700;
+          color:#fff;
+          font-size:12px;
+          transition:.4s ease-out .1s;
+        }
+
+        .nav ul li {
+          padding:13px 10px;
+          width:50px;
+          background:#333;
+          border-bottom:1px solid #444;
+          cursor:pointer;
+          list-style: none;
+        }
+
+        .nav ul {
+          margin-left: -35px;
+        }
+
+        .nav ul li:hover {
+          background:#222;
+        }
+
+        .more:hover ~ .nav {
+          margin-left:-80px;
+          transition:.4s;
+        }
+
+        .nav:hover {
+          margin-left:-80px;
+        }
+
+        .nav:hover .info-block {
+          margin-bottom:0;
+        }
+
+
+
+        .video {
+          text-align:center;
+          font-size:11px;
+          width:260px;
+          height:260px;
+          position:absolute;
+          background:#fff;
+          line-height:260px;
+          top:0;
+          z-index:-9;
+        }
+
+                .footer-distributed{
+            background-color: #BF4066;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+
+            padding: 55px 50px;
+            margin-top: 80px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right{
+            display: inline-block;
+            vertical-align: top;
+        }
+
+
+
+        .footer-distributed .footer-left{
+            width: 40%;
+        }
+
+
+
+        .footer-distributed h3{
+
+            margin: 0;
+        }
+
+        .footer-distributed span{
             color: #002E5B;
         }
+
+
+
+        .footer-distributed .footer-links{
+            color:  #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a{
+            display:inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color:  inherit;
+        }
+
+        .footer-distributed .footer-company-name{
+            color:  #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+
+
+        .footer-distributed .footer-center{
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i{
+            background-color:  #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope{
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p{
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin:0;
+        }
+
+        .footer-distributed .footer-center p span{
+            display:block;
+            font-weight: normal;
+            font-size:14px;
+            line-height:2;
+        }
+
+        .footer-distributed .footer-center p a{
+            color:  #002E5B;
+            text-decoration: none;;
+        }
+
+
+
+
+        .footer-distributed .footer-right{
+            width: 20%;
+        }
+
+        .footer-distributed .footer-company-about{
+            line-height: 20px;
+            color:  #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-company-about span{
+            display: block;
+            color:  #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-distributed .footer-icons{
+            margin-top: 25px;
+        }
+
+        .footer-distributed .footer-icons a{
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color:  #33383b;
+            border-radius: 2px;
+
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+
+
+
+        @media (max-width: 880px) {
+
+
+
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right{
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i{
+                margin-left: 0;
+            }
+
+        }
+        
+        .text{
+            margin-bottom: 10px;
+            width: 1100px;
+            height: 50px;
+            border-radius: 30px;
+            
+        }
+        input, textarea{
+            text-align: center;
+        }
+        
+        .textarea{
+            border-radius: 30px;
+        }
+        
+        .submitbutton{
+            background-color: #BF4066;
+            padding: 20px;
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            color: white;
+            border-radius: 30px;
+            cursor:pointer;
+            margin-bottom: 10px;
+        }
+        
+        #contact{
+            width: 100%;
+        }
+
+
+
     </style>
-    
+
 </head>
+
 <body>
-   
-   <div>
-       <div><h2 class="head-color">OCS</h2></div>
-       <div>
-           <ul>
-               <li>Home</li>
-               <li>About</li>
-               <li>Services</li>
-           </ul>
-       </div>
-    
-   </div>
-    
+
+    <div id="home">
+        <div>
+            <h2 class="head-color">OCS</h2>
+        </div>
+        <div class="navigation-bar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="banner">
+        <img src="https://images.pexels.com/photos/375897/pexels-photo-375897.jpeg?dl&fit=crop&crop=entropy&w=1280&h=829" alt="banner photo">
+    </div>
+
+
+    <div id="about" class="section-color aboutus">
+        <center>
+            <div class="card aboutussection">
+                <h2> <i class="fas fa-users-cog"></i> About us</h2>
+                <p>1st time in Bangladesh we are introducing "Online fruit Shop" .Its an online fruit house for you and your dear ones. Buy for your friends, family , near dear and closest people. We ensure that we will provide fresh fruit all over the country.</p>
+
+            </div>
+            <div class="card order">
+                <h2><i class="fas fa-shipping-fast"></i> Ordering System</h2>
+                <p>If you want to order any of our iteam then simply text us on 01730658300 or you can mail us on www.fruitshop.com .we will try our best to provide your products within 24 hours.</p>
+
+            </div>
+            <div class="card payment">
+                <h2><i class="fas fa-shopping-cart"></i> Payment</h2>
+                <p>You can pay through Dutch Bangla Bank or Bkash whichever way you prefer</p>
+                <h5>Dutch Bangla Bank</h5>
+                <span>A/C # 11xxxxxxx</span>
+                <h5>Bkash</h5>
+                <span>019xxxxxxx (personal)</span>
+            </div>
+
+        </center>
+
+    </div>
+
+
+
+    <div id="shop">
+        <center style="margin-top: 40px;margin-bottom: 40px; ">
+            <h2>Our Products</h2>
+            <p>You can buy product from here and if any confusion please contact us</p>
+        </center>
+
+
+        <div class="product">
+            <img class="product-img" src="https://i5.walmartimages.ca/images/Large/428/5_r/6000195494285_R.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+                    <div class="sale-tile">
+                        <div class="sale">SALE</div>
+                    </div>
+                    <div class="info-block">
+                        <div class="product-title">Apple</div>
+                        <div class="product-description">Australian Apple - Small</div>
+                        <div class="product-sale">$17</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://img.purch.com/rc/300x200/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA2NS8xNDkvb3JpZ2luYWwvYmFuYW5hcy5qcGc=" />
+            <div class="product-actions">
+                <div class="product-info">
+
+                    <div class="info-block">
+                        <div class="product-title">Banana</div>
+                        <div class="product-description">Banana From Barishal</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video"><img class="product-img" src="https://img.purch.com/rc/300x200/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA2NS8xNDkvb3JpZ2luYWwvYmFuYW5hcy5qcGc=" />
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="https://s3-eu-west-1.amazonaws.com/bwmedia-primary/frontendAssets/consumerContent/BerryWorld-Blueberries-square.jpg?mtime=20170703080309" />
+            <div class="product-actions">
+                <div class="product-info">
+
+                    <div class="info-block">
+                        <div class="product-title">Blueberry</div>
+                        <div class="product-description">Fresh Blueberry</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+            <input type="checkbox" name="play" id="play" /><label for="play"><span></span></label>
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="https://thecoconutmama.com/wp-content/uploads/2018/01/coconut.png" />
+            <div class="product-actions">
+                <div class="product-info">
+                    <div class="sale-tile">
+                        <div class="sale">SALE</div>
+                    </div>
+                    <div class="info-block">
+                        <div class="product-title">Coconut</div>
+                        <div class="product-description">Coconut From Saint Martin</div>
+                        <div class="product-sale">$17</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://static01.nyt.com/newsgraphics/2014/06/16/bittman-eat-cherry/ed5c4f4c098cd142650d7c00014e71abf85d2f86/eatopener_cherry.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+                    <div class="sale-tile">
+                        <div class="sale">SALE</div>
+                    </div>
+                    <div class="info-block">
+                        <div class="product-title">Cherry</div>
+                        <div class="product-description">Brazellian Cherry - red</div>
+                        <div class="product-sale">$17</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://images-na.ssl-images-amazon.com/images/I/419HOqrHbFL._SX300_QL70_.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+
+                    <div class="info-block">
+                        <div class="product-title">Dates</div>
+                        <div class="product-description">Arabian dates - Mariom</div>
+
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Table_grapes_on_white.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+
+                    <div class="info-block">
+                        <div class="product-title">Grapes</div>
+                        <div class="product-description">Green Grapes</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://images-na.ssl-images-amazon.com/images/I/3142WKlTV9L.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+                    <div class="sale-tile">
+                        <div class="sale">SALE</div>
+                    </div>
+                    <div class="info-block">
+                        <div class="product-title">Guava</div>
+                        <div class="product-description">Bangladeshi Guava from Sylhet.</div>
+                        <div class="product-sale">$17</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://5.imimg.com/data5/LY/WC/MY-37264496/fresh-jackfruit-500x500.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+
+                    <div class="info-block">
+                        <div class="product-title">Jackfruit</div>
+
+
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/06/26/Pictures/three-mangos-on-a-white-background_c0f9cd16-7908-11e8-b46a-be68571826e9.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+                    <div class="sale-tile">
+                        <div class="sale">SALE</div>
+                    </div>
+                    <div class="info-block">
+                        <div class="product-title">Mango</div>
+                        <div class="product-description">Rajshahi's Mango - Lengra</div>
+                        <div class="product-sale">$17</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/220px-Pineapple_and_cross_section.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+
+                    <div class="info-block">
+                        <div class="product-title">Pineapple</div>
+
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="https://cdn1.medicalnewstoday.com/content/images/headlines/266/266886/watermelon.jpg" />
+            <div class="product-actions">
+                <div class="product-info">
+                    <div class="sale-tile">
+                        <div class="sale">SALE</div>
+                    </div>
+                    <div class="info-block">
+                        <div class="product-title">Watermelon</div>
+                        <div class="product-sale">$17</div>
+                        <div class="product-prize">$36</div>
+                        <div class="button-buy">Buy now</div>
+                        <div class="add">Add</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+            </div>
+            <div class="more"></div>
+            <div class="nav">
+                <ul>
+                    <li>Share</li>
+                    <li>Info</li>
+                    <li>Seller</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="contact" style="margin-top: 40px;" class="section-color">
+        <center>
+            <h2 style="margin-top: 20px;">Contact Us</h2>
+            <p>if any types of inquirey please contact with us</p>
+
+            <form action="">
+                <input class="text" type="text" placeholder="Enter Your Name"><br>
+                <input class="text" type="email" placeholder="Enter Your Email"><br>
+                <input class="text" type="text" placeholder="Enter Subject"><br>
+                <textarea class="textarea" name="" id="" placeholder="Enter Your Message" cols="155" rows="20"></textarea><br>
+
+                <button class="submitbutton">Send Message</button>
+
+            </form>
+
+        </center>
+    </div>
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3><span>OCS</span></h3>
+
+            <p class="footer-links">
+                <a href="#home">Home</a>
+                ·
+                <a href="#about">About</a>
+                ·
+                <a href="#shop">Shop</a>
+                ·
+                <a href="#contact">Contact</a>
+            </p>
+
+            <p class="footer-company-name">Online Fruit Shop &copy; 2018</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>21 No Hall SUST</span> SUST, Bangladesh</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+880 123 123456</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">support@company.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Our Company is absolutely best from all companies. we give you 100% gurantee and independency in returns.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
 </body>
+
 </html>
